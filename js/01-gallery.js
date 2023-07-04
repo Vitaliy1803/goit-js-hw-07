@@ -22,8 +22,7 @@ const itemsGallery = galleryItems.map(({preview, original, description}) => {
 
 galleryContainer.insertAdjacentHTML('beforeend', itemsGallery);
 
-const listEl = document.querySelector('.gallery');
-listEl.addEventListener('click', onImgClick);
+galleryContainer.addEventListener('click', onImgClick);
 
 
 function onImgClick (event) {
