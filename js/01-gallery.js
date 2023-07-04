@@ -10,7 +10,7 @@ const itemsGallery = createItemsGallery(galleryItems);
 
 function createItemsGallery(items) {
     return items.map(({preview, original, description}) => {
-        return `<div class="gallery__item">
+        return `<li class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -19,7 +19,7 @@ function createItemsGallery(items) {
       alt="${description}"
     />
   </a>
-</div>`;
+</li>`;
     })
     .join('');
 };
