@@ -6,7 +6,7 @@ console.log(galleryItems);
 const galleryContainer = document.querySelector('.gallery');
 
 const itemsGallery = galleryItems.map(({preview, original, description}) => {
-    return `<div class="gallery__item">
+    return `<li class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -15,7 +15,7 @@ const itemsGallery = galleryItems.map(({preview, original, description}) => {
       alt="${description}"
     />
   </a>
-</div>`;
+</li>`;
     })
     .join('');
 
