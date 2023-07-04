@@ -4,13 +4,9 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryContainer = document.querySelector('.gallery');
-const itemsGallery = createItemsGallery(galleryItems);
-//galleryContainer.insertAdjacentHTML('beforebegin', itemsGallery);
-//galleryContainer.addEventListener('click', onImgClick);
 
-function createItemsGallery(items) {
-    return items.map(({preview, original, description}) => {
-        return `<li class="gallery__item">
+const itemsGallery = galleryItems.map(({preview, original, description}) => {
+    return `<div class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -19,9 +15,29 @@ function createItemsGallery(items) {
       alt="${description}"
     />
   </a>
-</li>`;
+</div>`;
     })
     .join('');
-};
+
 
 galleryContainer.insertAdjacentHTML('beforeend', itemsGallery);
+
+const listEl = document.querySelector('.gallery');
+listEl.addEventListener('click', onImgClick);
+
+
+function onImgClick (event) {
+    event.preventDefault();
+    console.log(event.target.nodeName);
+
+    if (event.target.nodeName !== 'IMG') {
+        return;
+    }
+
+    const instance = basicLightbox.create(`
+    <img src = ${event.target.dataset.source} width="800" height="600">
+`);
+
+  instance.show();
+  
+};
