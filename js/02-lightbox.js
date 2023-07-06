@@ -33,7 +33,7 @@ function onImgClick (event) {
     }
 }
 
-var lightbox = new SimpleLightbox('.gallery a', { 
+const lightbox = new SimpleLightbox('.gallery a', { 
     captions: true,
   captionType: 'attr',
   captionsData: 'alt',
